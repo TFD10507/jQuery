@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery 相關練習</title>
+</head>
+
+<body>
+
+    <h1>這是標題</h1>
+    <h1 id="my_title">這是我的標題</h1>
+    <p>這是段落1</p>
+    <p class="para para2">這是段落2</p>
+    <p class="para para3">段是段落3</p>
+    
+    <hr>
+    <p class="para para4">段是段落4</p>
+    
+    <div>
+      <a href="#" target="_blank">這是連結</a>
+      <p>div 裡的段落</p>
+      <section>
+        <p>div 裡更內層的段落</p>
+      </section>
+      <p>div 裡的段落</p>
+    </div>
+    
+    <p>其它段落1</p>
+    <p>其它段落2</p>
+
+    <div id="outer_div">
+        <div id="inner_div">
+          <p>段落</p>
+          <ol id="ol_list">
+            <li id="i1">項目一</li>
+            <li id="i2">項目二</li>
+            <li id="i3">項目三</li>
+          </ol>
+        </div>
+      </div>
+
+    <script src="./vendors/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $("div ~ p").css("color", "red");
+        $("p:nth-child(3)").css("color", "blue");
+        $("p").slice(1).css("color", "orange");
+        $("#i1").parents().css("border", "1px solid red");
+        // function _(){
+        //     console.log("a");
+        //     return{
+        //         price: 1000,
+        //         color: "white",
+        //         drive: function(){
+        //             console.log("drive");
+        //         }
+        //     };
+        // }
+
+        // _().drive();
+    </script>
+</body>
+
+</html>

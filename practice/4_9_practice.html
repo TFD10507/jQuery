@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .title1 {
+            color: red;
+        }
+
+        .para {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h1_title">這是標題</h1>
+    <button type="button" id="change_title">標題加上 title1 樣式</button>
+    <hr>
+
+    <p id="p1" class="title1">這是段落</p>
+    <button type="button" class="btn_para">段落移除 title1 樣式，然後加上 para 樣式</button>
+
+    <hr>
+
+    <a href="https://tw.yahoo.com" target="_blank" class="link">這是連結</a>
+    <button type="button" class="btn_link">將「這是連結」文字，改成「Yahoo! 網站」</button>
+
+    <hr>
+
+    <div>
+        項目名稱：<input type="text" id="item_add">
+    </div>
+
+    <ul class="list">
+        <li>項目一<button type="button" class="btn_del">移除</button></li>
+    </ul>
+
+    <script src="./vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        // 透過按鈕，將 h1 標題部份，加上 title1 這個 class。
+        $("#change_title").on("click", function () {
+            $("#h1_title").addClass("title1");
+        });
+
+        // 透過按鈕，將 p 段落部份，移除 title1 這個 class ，並加上 para 這個 class。
+        $(".btn_para").on("click", function () {
+            $("#p1").removeClass("title1");
+            $("#p1").addClass("para");
+        });
+
+        // 透過按鈕，將 a 連結裡面的文字內容，換成「Yahoo! 網站」。
+        $(".btn_link").on("click", function () {
+            // $(".link").replaceWith("<a href='https://tw.yahoo.com' target='_blank' class='link'>Yahoo! 網站</a>");
+            $(".link").text("Yahoo! 網站");
+        });
+        // 在文字框欄位，觸發 blur 事件時，將文字框的文字，放在 ul.list 裡面的最前面。也就是新增新的一項 li，文字放在 li 裡。然後文字框欄位要清空。如果使用者沒有輸入任何文字，就不新增。
+        $("#item_add").on("blur", function () {
+            if ($("#item_add").val() != "") {
+                // console.log($("#item_add").val());
+                $("ul.list").prepend("<li>" + $("#item_add").val() + "<button type='button' class='btn_del'>移除</button></li>");
+                $(this).val("");  //當新增時，會讓input裡的字串清空
+            }
+
+        });
+
+        // 「移除」按鈕按下去時(click)，該項的 li 移除。
+        $(".btn_del").on("click", function () {
+            $(this).closest("li").remove(); //this = .btn_del
+        });
+
+
+    </script>
+</body>
+
+</html>
