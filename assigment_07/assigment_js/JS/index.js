@@ -144,12 +144,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+  // ==== 待辦事項文字框的 focus 事件及 blur 事件觸發 ===== //
+  var input_task_name = document.getElementsByClassName("task_name")[0];
+
+  input_task_name.addEventListener("focus", function () {
+    this.closest("div.task_add_block").classList.add("-on");
+  });
+  input_task_name.addEventListener("blur", function () {
+    this.closest("div.task_add_block").classList.remove("-on");
+  });
 
 
 // 點擊enter鍵也可以輸入待辦項目
 task_name.addEventListener("keydown", function (e) {
   // enter 的 ASCII Code 碼
-  if (e.which === 13) {
+  if (e.which == 13) {
     task_add.click();
   }
 });
