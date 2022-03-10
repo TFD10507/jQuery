@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .icon_external {
+            width: 12px;
+            margin-left: 2px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="https://tw.yahoo.com">yahoo 連結</a>
+    <br>
+    <a href="https://www.google.com" target="_blank">google 開新分頁連結</a>
+    <br>
+    <a href="https://www.pinterest.com/" target="_blank">pinterest開新分頁連結</a>
+
+    <script src="./vendors/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function ($) {
+
+            $.fn.externalLinkIcon = function (params) {
+                // 跑迴圈
+                $(this).each(function () {
+                    if ($(this).attr("target") == "_blank") {
+                        $(this).append("<img src='https://alldata.sgp1.digitaloceanspaces.com/images/external_link.png' class='icon_external'>");
+                    }
+                });
+                return this;
+            };
+        })(jQuery);
+
+        $(function () {
+            $("a").externalLinkIcon();
+        });
+    </script>
+</body>
+
+</html>

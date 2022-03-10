@@ -52,7 +52,7 @@ $(function () {
                 </li>
                 `;
       $(".task_list").prepend(list_html);
-      $(".task_name").val() = "";
+      $(".task_name").val("");
 
       // 為抓取資料而命名
       let task = {

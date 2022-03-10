@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        ul.list {
+            margin: 24px 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul.list>li {
+            margin-bottom: 30px;
+        }
+
+        ul.list>li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul.list>li>a.link_title {
+            display: block;
+            width: 100%;
+            color: white;
+            background-color: #dd2836;
+            box-shadow: 2px 2px 8px 0 rgba(56, 55, 53, 0.33);
+            border-radius: 26px;
+            padding: 8px 40px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        ul.list>li>a.link_title::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        ul.list>li>a.link_title button.switch_btn {
+            float: right;
+            display: inline-block;
+            background: none;
+            border: 0;
+            outline: none;
+            color: white;
+            font-size: 24px;
+        }
+
+        ul.list>li>a.link_title button.switch_btn span.-minus {
+            display: none;
+        }
+
+        ul.list>li>div.inner_block {
+            font-size: 18px;
+            color: #4a4a4a;
+            margin-top: 8px;
+            padding: 0 40px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        ul.list>li.-on>a.link_title button.switch_btn span.-plus {
+            display: none;
+        }
+
+        ul.list>li.-on>a.link_title button.switch_btn span.-minus {
+            display: inline-block
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list">
+
+        <li>
+            <a class="link_title" href="#">
+                <button type="button" class="switch_btn">
+                    <span class="-plus">+</span><span class="-minus">-</span>
+                </button>
+                Q1. 如何加入會員？
+            </a>
+            <div class="inner_block">
+                A1. 加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式
+            </div>
+
+        </li>
+
+        <li>
+            <a class="link_title" href="#">
+                <button type="button" class="switch_btn">
+                    <span class="-plus">+</span><span class="-minus">-</span>
+                </button>
+                Q2. 如何加入會員？
+            </a>
+            <div class="inner_block">
+                A2. 加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式
+            </div>
+
+        </li>
+    </ul>
+
+    <script src="./vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        $("a.link_title").on("click", function (e) {
+            e.preventDefault();
+            $(this).closest("li").toggleClass("-on");
+            $(this).closest("li").find(".inner_block").slideToggle(1000);
+        });
+    </script>
+</body>
+
+</html>
